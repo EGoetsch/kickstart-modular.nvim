@@ -22,6 +22,14 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 -- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
 -- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
+-- vim.keymap.set({ 'n', 'v' }, 'q', '<Nop>', { silent = true })
+vim.keymap.set({ 'n', 'v' }, '<A-q>', 'q', { noremap = true, silent = false, desc = 'Record macro' })
+vim.keymap.set('n', 'q', function()
+  vim.notify("'q' macro has been rebound to <A-q>!", vim.log.levels.WARN)
+end, { silent = true })
+vim.keymap.set({ 'i', 'c' }, 'jkk', '<esc>', { silent = true })
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Move up and center buffer' })
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Move down and center buffer' })
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --
